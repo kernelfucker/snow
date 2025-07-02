@@ -8,6 +8,8 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
+/* version 0.2 */
+
 const int af = AF_INET;
 const int ss = SOCK_STREAM;
 const int optl = SOL_SOCKET;
@@ -15,7 +17,7 @@ const int srcv = SO_RCVTIMEO;
 const int ssnd = SO_SNDTIMEO;
 
 void usage(const char *snow){
-	printf("usage: <ip> <input-port> <output-port>\n", snow);
+	printf("usage: %s <ip> <input-port> <output-port>\n", snow);
 }
 
 int scport(const char *ip, int port){
