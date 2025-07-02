@@ -2,7 +2,7 @@
 minimal port scanner
 
 # compile
-$ clang snow.c -o snow
+$ clang snow.c -o snow -Os -s
 
 # usage
 $ ./snow 127.0.0.1 9140 9160 // scans ports between 9140 and 9160
