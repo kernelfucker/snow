@@ -8,17 +8,13 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-/* version 0.2 */
+#define version "0.2"
 
 const int af = AF_INET;
 const int ss = SOCK_STREAM;
 const int optl = SOL_SOCKET;
 const int srcv = SO_RCVTIMEO;
 const int ssnd = SO_SNDTIMEO;
-
-void usage(const char *snow){
-	printf("usage: %s <ip> <input-port> <output-port>\n", snow);
-}
 
 int scport(const char *ip, int port){
 	int sockfd;
@@ -41,7 +37,35 @@ int scport(const char *ip, int port){
 	return(r == 0);
 }
 
+void usage(const char *snow){
+	printf("usage: %s [ip] [input-port] [output-port]\n", snow);
+	printf("try '%s -h' for more information\n", snow);
+}
+
+void help(const char *snow){
+	printf("usage: %s [options]..\n", snow);
+	printf("options:\n");
+	printf("  -h	display this\n");
+	printf("  -v	show version information\n");
+	exit(1);
+}
+
+void show_version(){
+	printf("snow-%s\n", version);
+	exit(1);
+}
+
 int main(int argc, char *argv[]){
+	if(argc == 2){
+		if(strcmp(argv[1], "-h") == 0){
+			help(argv[0]);
+		}
+
+		if(strcmp(argv[1], "-v") == 0){
+			show_version();
+		}
+	}
+
 	if(argc != 4){
 		usage(argv[0]);
 		return 1;
