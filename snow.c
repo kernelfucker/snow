@@ -1,5 +1,5 @@
 /* See LICENSE file for license details */
-/* snow - port scanner */
+/* snow - minimal port scanner */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
