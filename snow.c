@@ -45,8 +45,8 @@ void usage(const char *snow){
 void help(const char *snow){
 	printf("usage: %s [options]..\n", snow);
 	printf("options:\n");
-	printf("  -h	display this\n");
 	printf("  -v	show version information\n");
+	printf("  -h	display this\n");
 	exit(1);
 }
 
